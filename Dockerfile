@@ -1,9 +1,5 @@
-FROM python:3-onbuild
-
-# specify the port number the container should expose
-
-EXPOSE 5000
-
-# run the application
-
+FROM python:3.10-slim
+WORKDIR /app
+RUN pip install --no-cache-dir --prefer-binary flask
+COPY ./main.py .
 CMD ["python", "./main.py"]
